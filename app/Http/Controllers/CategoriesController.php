@@ -13,7 +13,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('page.categories.index');
+
+        $data= Categories::all();
+        return view('page.categories.index')->with(['data' => $data]);
+        
+
     }
 
     /**

@@ -14,29 +14,53 @@
                         @csrf
                         <div class="p-1 rounded-xl">
                             <div class="mb-4">
-                                <label for="name"
+                                <label for="brand_id"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand id
                                     <span class="text-red-500">*</span></label>
+                                <input type="text" id="brand_id" name="brand_id"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Brand id disini ..."
+                                    oninput="this.value = this.value.toUpperCase();" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="category_id"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category id<span class="text-red-500">*</span></label>
+                                <input type="text" id="category_id" name="category_id"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Nama category id disini ..."
+                                    oninput="this.value = this.value.toUpperCase();" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name<span class="text-red-500">*</span></label>
                                 <input type="text" id="name" name="name"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Nama disini ..."
+                                    placeholder="Masukan Name disini ..."
                                     oninput="this.value = this.value.toUpperCase();" />
                             </div>
                             <div class="mb-4">
                                 <label for="description"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description<span class="text-red-500">*</span></label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">description<span class="text-red-500">*</span></label>
                                 <input type="text" id="description" name="description"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Nama description disini ..."
+                                    placeholder="Masukan description id disini ..."
                                     oninput="this.value = this.value.toUpperCase();" />
                             </div>
                             <div class="mb-4">
-                                <label for="logo"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Logo
-                                    <span class="text-red-500">*</span></label>
-                                <input type="file" id="logo" name="logo"
+                                <label for="base_price"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Base Price<span class="text-red-500">*</span></label>
+                                <input type="text" id="base_price" name="base_price"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Logo disini ..." />
+                                    placeholder="Masukan Base Price disini ..."
+                                    oninput="this.value = this.value.toUpperCase();" />
+                            </div>
+                            <div class="mb-4">
+                                <label for="is_active"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Is Active<span class="text-red-500">*</span></label>
+                                <input type="text" id="is_active" name="is_active"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Masukan Is Active disini ..."
+                                    oninput="this.value = this.value.toUpperCase();" />
                             </div>
                             <button type="submit" class="flex inline-flex rounded-full bg-sky-200 hover:bg-sky-700 hover:bg-sky-500 text-sky-600 hover:text-white">
                                 <div>

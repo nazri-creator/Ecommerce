@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('base_price');
-            $table->integer('is_active');
+            $table->string('is_active');
             $table->timestamps();
         });
     }

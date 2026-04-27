@@ -22,12 +22,12 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                     {{ __('Categories') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product')">
+                    <x-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                     {{ __('Product') }}
                     </x-nav-link>
                 </div>
@@ -92,12 +92,12 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories')">
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                 {{ __('Categories') }}
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product')">
+            <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.*')">
                 {{ __('Product') }}
             </x-responsive-nav-link>
         </div>

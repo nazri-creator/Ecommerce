@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
-use NunoMaduro\Collision\Adapters\Phpunit\Support\ResultReflection;
-use ReturnTypeWillChange;
 
 class ProductsController extends Controller
 {
@@ -14,7 +12,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('page.product.index');
+        $data= Products::all();
+        return view('page.product.index')->with(['data' => $data]);
     }
 
     /**
