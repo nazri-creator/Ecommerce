@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
+use App\Models\ProductVariants;
 use Illuminate\Http\Request;
 
 class ProductSizesController extends Controller
@@ -11,7 +13,7 @@ class ProductSizesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -27,7 +29,7 @@ class ProductSizesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

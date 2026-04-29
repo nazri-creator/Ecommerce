@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('product.create') }}">Add Product</a>
                 </div>
-                                <div class="table-responsive">
+                <div class="table-responsive">
                     <table class="datatable display">
                         <thead>
                             <tr>
@@ -22,8 +22,8 @@
                                 <th class="text-center">Deskription</th>
                                 <th class="text-center">Base Price</th>
                                 <th class="text-center">Status Active</th>
-                                <th class="text-center">Action</th>
-                            </tr>
+                                <th class="text-center w-30">Action</th
+                                    </tr>
                         </thead>
                         <tbody>
                             @php
@@ -32,8 +32,8 @@
                             @forelse($data as $i)
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
-                                <td class="text-center">{{$i->brand_id}}</td>
-                                <td class="text-center">{{$i->category_id}}</td>
+                                <td class="text-center">{{$i->brand->name}}</td>
+                                <td class="text-center">{{$i->category->name}}</td>
                                 <td class="text-start">{{$i->name}}</td>
                                 <td class="text-start">{{$i->description}}</td>
                                 <td class="text-center">{{$i->base_price}}</td>
@@ -48,19 +48,7 @@
                                         <div>
                                             <div
                                                 class="flex items-center justify-between py-2 pl-2 pr-6 text-xs font-medium transition-all duration-300 rounded-full">
-                                                <span>Edit</span>
-                                            </div>
-                                        </div>
-                                    </button>
-
-                                    <button type="button" class="flex inline-flex text-red-600 bg-red-200 rounded-full hover:bg-red-700 hover:bg-red-500 hover:text-white" onclick="return categoriesDelete('{{$i->id}}','{{$i->name}}')">
-                                        <div class="flex items-center justify-center w-8 h-8 text-red-600 bg-red-100 rounded-full">
-                                            <i class="text-sm fas fa-trash"></i>
-                                        </div>
-                                        <div>
-                                            <div
-                                                class="flex items-center justify-between py-2 pl-2 pr-6 text-xs font-medium transition-all duration-300 rounded-full">
-                                                <span>Hapus</span>
+                                                <a href="{{route('product.show', $i->id)}}">Detail</a>
                                             </div>
                                         </div>
                                     </button>
