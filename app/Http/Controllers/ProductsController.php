@@ -14,9 +14,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $data= Products::all();
+        $data = Products::all();
         return view('page.product.index')->with(['data' => $data]);
-
     }
 
     /**
@@ -56,8 +55,24 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        $data= Products::all();
-        return view('page.product.detail')->with(['data' => $data]);
+        $product = Products::with([
+            'brand',
+            'category',
+            'variants.images'
+        ])->findOrFail($id);
+
+        $variants = $product->variants;
+
+        $images = $variants->pluck('images')->flatten();
+
+        $sizes = \App\Models\ProductSizes::all();
+
+        return view('page.detail.index', compact(
+            'product',
+            'variants',
+            'images',
+            'sizes'
+        ));
     }
 
     /**

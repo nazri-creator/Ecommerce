@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use App\Models\ProductVariants;
 use Illuminate\Http\Request;
 
@@ -12,16 +13,22 @@ class ProductVariantsController extends Controller
      */
     public function index()
     {
-        $data = ProductVariants::all();
-        return view('page.product.detail')->with(['data' => $data]);
+        return redirect()->route('product.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
- 
+        $product_id = $request->query('product_id');
+
+        $product = Products::findOrFail($product_id);
+
+        return view('page.detail.cvariant', compact(
+            'product',
+            'product_id'
+        ));
     }
 
     /**
@@ -29,7 +36,7 @@ class ProductVariantsController extends Controller
      */
     public function store(Request $request)
     {
-               $data = [
+        $data = [
             'product_id' => $request->input('product_id'),
             'color_name' => $request->input('color_name'),
             'color_code' => $request->input('color_code')
@@ -37,8 +44,10 @@ class ProductVariantsController extends Controller
 
         ProductVariants::create($data);
 
-        return redirect()
-            ->route('product.detail');
+        return redirect()->route(
+            'product.show',
+            $request->product_id
+        );
     }
 
     /**

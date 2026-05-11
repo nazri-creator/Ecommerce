@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariants extends Model
 {
-        use HasFactory;
+    use HasFactory;
+
+    protected $table = 'products_variants';
 
     protected $fillable = [
         'product_id',
@@ -15,5 +17,13 @@ class ProductVariants extends Model
         'color_code'
     ];
 
-    protected $table = 'product_vaiants';
+    public function product()
+    {
+        return $this->belongsTo(Products::class, 'product_id', 'id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImages::class, 'variant_id', 'id');
+    }
 }

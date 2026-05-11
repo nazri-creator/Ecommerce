@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductImages extends Model
 {
-        use HasFactory;
+    use HasFactory;
 
     protected $fillable = [
         'variant_id',
@@ -15,5 +15,11 @@ class ProductImages extends Model
         'is_primary'
     ];
 
-    protected $table = 'brands';
+    protected $table = 'products_image';
+
+    public function variant()
+    {
+        return $this->belongsTo(ProductVariants::class, 'variant_id', 'id');
+    }
+    
 }

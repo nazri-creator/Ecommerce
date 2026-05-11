@@ -13,5 +13,6 @@ class ProductSizes extends Model
         'size_name'
     ];
 
-    protected $table = 'product_sizes';
+    protected $table = 'products_sizes';
+
 }

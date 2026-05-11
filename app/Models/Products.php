@@ -21,11 +21,16 @@ class Products extends Model
 
     public function brand()
     {
-        return $this->belongsTo(Brands::class, 'brand_id', 'id');
+        return $this->belongsTo(Brands::class);
     }
 
     public function category()
     {
-        return $this->belongsTo(Categories::class, 'category_id', 'id');
+        return $this->belongsTo(Categories::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariants::class, 'product_id');
     }
 }

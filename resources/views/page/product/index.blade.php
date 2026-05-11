@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('product.create') }}">Add Product</a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive text-white p-5">
                     <table class="datatable display">
                         <thead>
                             <tr>
@@ -22,8 +22,7 @@
                                 <th class="text-center">Deskription</th>
                                 <th class="text-center">Base Price</th>
                                 <th class="text-center">Status Active</th>
-                                <th class="text-center w-30">Action</th
-                                    </tr>
+                                <th class="text-center w-30">Action</th>
                         </thead>
                         <tbody>
                             @php
@@ -48,7 +47,9 @@
                                         <div>
                                             <div
                                                 class="flex items-center justify-between py-2 pl-2 pr-6 text-xs font-medium transition-all duration-300 rounded-full">
-                                                <a href="{{route('product.show', $i->id)}}">Detail</a>
+                                                <a href="{{ route('product.show', $i->id) }}">
+                                                    Detail
+                                                </a>
                                             </div>
                                         </div>
                                     </button>

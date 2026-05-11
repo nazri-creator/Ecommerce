@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('categories.create') }}">Add Categories</a>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive p-5 text-white">
                     <table class="datatable display">
                         <thead>
                             <tr>

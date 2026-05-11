@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductImages;
+use App\Models\ProductVariants;
 use Illuminate\Http\Request;
 
 class ProductImagesController extends Controller
@@ -11,15 +13,25 @@ class ProductImagesController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('product.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $product_id = $request->query('product_id');
+
+        $variant = ProductVariants::where(
+            'product_id',
+            $product_id
+        )->firstOrFail();
+
+        return view('page.detail.image', compact(
+            'variant',
+            'product_id'
+        ));
     }
 
     /**
@@ -27,7 +39,22 @@ class ProductImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'variant_id' => $request->input('variant_id'),
+            'image_url' => $request->input('image_url'),
+            'is_primary' => $request->has('is_primary')
+        ];
+
+        ProductImages::create($data);
+
+        $variant = ProductVariants::findOrFail(
+            $request->variant_id
+        );
+
+        return redirect()->route(
+            'product.show',
+            $variant->product_id
+        );
     }
 
     /**
