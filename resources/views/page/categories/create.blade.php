@@ -8,7 +8,6 @@
     <div class="py-8">
         <div class="mx-auto max-w-2xl sm:px-6 lg:px-8">
 
-            {{-- Back Button --}}
             <div class="mb-4">
                 <a href="{{ route('categories.index') }}"
                     class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors">
