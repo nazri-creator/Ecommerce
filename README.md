@@ -17,6 +17,15 @@ Laravel Ecommerce adalah aplikasi sederhana berbasis Laravel yang dibuat sebagai
 
 ---
 
+## 📸 Screenshot
+
+### Halaman Product
+![Product](public/img/product.png)
+
+### Detail Produk
+![Detail](public/img/detail.png)
+
+---
 ## 🛠️ Tech Stack
 
 - Laravel
@@ -24,7 +33,6 @@ Laravel Ecommerce adalah aplikasi sederhana berbasis Laravel yang dibuat sebagai
 - Blade Template
 - Tailwind CSS
 - MySQL
-- Vite
 - Composer
 - NPM
 
@@ -35,3 +43,14 @@ Laravel Ecommerce adalah aplikasi sederhana berbasis Laravel yang dibuat sebagai
 ```bash
 git clone https://github.com/username/laravel-ecommerce.git
 cd laravel-ecommerce
+
+composer install
+npm install
+
+cp .env.example .env
+php artisan key:generate
+
+php artisan migrate
+
+npm run dev
+php artisan serve
