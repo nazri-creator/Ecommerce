@@ -1,55 +1,74 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Brands') }}
+            {{ __('Tambah Brand') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 p-5">
-            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg text-white">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('brands.store') }}" method="post" enctype="multipart/form-data"
-                        id="brandsForm">
+    <div class="py-8">
+        <div class="mx-auto max-w-2xl sm:px-6 lg:px-8">
+
+            {{-- Back Button --}}
+            <div class="mb-4">
+                <a href="{{ route('brands.index') }}"
+                    class="inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors">
+                    ← Kembali ke Daftar Brand
+                </a>
+            </div>
+
+            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-xl">
+                <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                    <h3 class="text-base font-semibold text-gray-700 dark:text-gray-200">Form Tambah Brand</h3>
+                </div>
+
+                <div class="p-6">
+                    <form action="{{ route('brands.store') }}" method="post" enctype="multipart/form-data" id="brandsForm">
                         @csrf
-                        <div class="p-1 rounded-xl">
-                            <div class="mb-4">
-                                <label for="name"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name
-                                    <span class="text-red-500">*</span></label>
+
+                        <div class="space-y-5">
+
+                            <div>
+                                <label for="name" class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Nama <span class="text-red-500">*</span>
+                                </label>
                                 <input type="text" id="name" name="name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Nama disini ..."
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-shadow"
+                                    placeholder="Masukkan nama brand..."
                                     oninput="this.value = this.value.toUpperCase();" />
                             </div>
-                            <div class="mb-4">
-                                <label for="description"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description<span class="text-red-500">*</span></label>
+
+                            <div>
+                                <label for="description" class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Deskripsi <span class="text-red-500">*</span>
+                                </label>
                                 <input type="text" id="description" name="description"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Nama description disini ..."
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-shadow"
+                                    placeholder="Masukkan deskripsi brand..."
                                     oninput="this.value = this.value.toUpperCase();" />
                             </div>
-                            <div class="mb-4">
-                                <label for="logo"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Logo
-                                    <span class="text-red-500">*</span></label>
-                                <input type="file" id="logo" name="logo"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Masukan Logo disini ..." />
+
+                            <div>
+                                <label for="logo" class="block mb-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
+                                    Logo <span class="text-red-500">*</span>
+                                </label>
+                                <input type="file" id="logo" name="logo" accept="image/*"
+                                    class="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                                           file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </div>
-                            <button type="submit" class="flex inline-flex rounded-full bg-sky-200 hover:bg-sky-700 hover:bg-sky-500 text-sky-600 hover:text-white">
-                                <div>
-                                    <div
-                                        class="flex items-center justify-between py-2 pl-6 pr-2 text-xs font-medium transition-all duration-300 rounded-full">
-                                        <span>Simpan</span>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-sky-100 text-sky-600">
-                                    <i class="mt-1 text-sm fi fi-sr-disk"></i>
-                                </div>
-                            </button>
+
                         </div>
+
+                        <div class="flex items-center gap-3 mt-7 pt-5 border-t border-gray-200 dark:border-gray-700">
+                            <button type="submit"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
+                                Simpan Brand
+                            </button>
+                            <a href="{{ route('brands.index') }}"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600">
+                                Batal
+                            </a>
+                        </div>
+
                     </form>
                 </div>
             </div>

@@ -1,69 +1,62 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Brands') }}
+            {{ __('Brand') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{route('brands.create') }}">Add Brand</a>
+            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-xl">
+
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                    <h3 class="text-base font-semibold text-gray-700 dark:text-gray-200">Daftar Brand</h3>
+                    <a href="{{ route('brands.create') }}"
+                        class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
+                        + Tambah Brand
+                    </a>
                 </div>
-                <div class="table-responsive p-5 text-white">
-                    <table class="datatable display">
+
+                <div class="p-6 overflow-x-auto text-white">
+                    <table class="datatable w-full">
                         <thead>
                             <tr>
-                                <th class="w-5 text-center">No</th>
-                                <th class="w-20 text-center">Name</th>
-                                <th class="w-20 text-center">Description</th>
-                                <th class="w-20 text-center">Logo</th>
-                                <th class="w-20 text-center">Action</th>
+                                <th class="text-center">No</th>
+                                <th>Nama</th>
+                                <th>Deskripsi</th>
+                                <th class="text-center">Logo</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                            $no = 1;
-                            @endphp
                             @forelse($data as $i)
                             <tr>
-                                <td class="text-center">{{$no++}}</td>
-                                <td class="text-start">{{$i->name}}</td>
-                                <td class="text-start">{{$i->description }}</td>
-                                <td class="text-wrap">{{$i->logo }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="font-medium text-gray-800 dark:text-gray-100">{{ $i->name }}</td>
+                                <td class="text-gray-500">{{ $i->description }}</td>
+                                <td class="text-center text-xs text-gray-400">{{ $i->logo }}</td>
                                 <td class="text-center">
-                                    <button type="button" class="flex inline-flex rounded-full bg-amber-200 hover:bg-amber-700 hover:bg-amber-500 text-amber-600 hover:text-white" data-id="{{$i->id}}"
-                                        data-modal-target="sourceModal" data-name="{{ $i->name }}"
-                                        onclick="editSourceModal(this)">
-                                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-amber-100 text-amber-600">
-                                            <i class="text-sm fas fa-edit"></i>
-                                        </div>
-                                        <div>
-                                            <div
-                                                class="flex items-center justify-between py-2 pl-2 pr-6 text-xs font-medium transition-all duration-300 rounded-full">
-                                                <span>Edit</span>
-                                            </div>
-                                        </div>
-                                    </button>
-
-                                    <button type="button" class="flex inline-flex text-red-600 bg-red-200 rounded-full hover:bg-red-700 hover:bg-red-500 hover:text-white" onclick="return categoriesDelete('{{$i->id}}','{{$i->name}}')">
-                                        <div class="flex items-center justify-center w-8 h-8 text-red-600 bg-red-100 rounded-full">
-                                            <i class="text-sm fas fa-trash"></i>
-                                        </div>
-                                        <div>
-                                            <div
-                                                class="flex items-center justify-between py-2 pl-2 pr-6 text-xs font-medium transition-all duration-300 rounded-full">
-                                                <span>Hapus</span>
-                                            </div>
-                                        </div>
-                                    </button>
+                                    <div class="inline-flex items-center gap-2">
+                                        <button type="button"
+                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-amber-700 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors border border-amber-200"
+                                            data-id="{{ $i->id }}" data-name="{{ $i->name }}"
+                                            onclick="editSourceModal(this)">
+                                            Edit
+                                        </button>
+                                        <button type="button"
+                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition-colors border border-red-200"
+                                            onclick="return categoriesDelete('{{ $i->id }}','{{ $i->name }}')">
+                                            Hapus
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             @empty
-                            <div class="p-3 mb-3 text-white bg-gray-500 rounded shadow-sm">
-                                Data Belum Tersedia!
-                            </div>
+                            <tr>
+                                <td colspan="5" class="text-center py-8 text-gray-400 italic">
+                                    Belum ada brand tersedia.
+                                </td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>

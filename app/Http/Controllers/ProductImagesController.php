@@ -23,15 +23,9 @@ class ProductImagesController extends Controller
     {
         $product_id = $request->query('product_id');
 
-        $variant = ProductVariants::where(
-            'product_id',
-            $product_id
-        )->firstOrFail();
+        $variant = ProductVariants::where('product_id', $product_id)->firstOrFail();
 
-        return view('page.detail.image', compact(
-            'variant',
-            'product_id'
-        ));
+        return view('page.detail.image', compact('variant', 'product_id'));
     }
 
     /**
@@ -41,20 +35,15 @@ class ProductImagesController extends Controller
     {
         $data = [
             'variant_id' => $request->input('variant_id'),
-            'image_url' => $request->input('image_url'),
-            'is_primary' => $request->has('is_primary')
+            'image_url'  => $request->input('image_url'),
+            'is_primary' => (bool) $request->input('is_primary', 0),
         ];
 
         ProductImages::create($data);
 
-        $variant = ProductVariants::findOrFail(
-            $request->variant_id
-        );
+        $variant = ProductVariants::findOrFail($request->variant_id);
 
-        return redirect()->route(
-            'product.show',
-            $variant->product_id
-        );
+        return redirect()->route('product.show', $variant->product_id);
     }
 
     /**
