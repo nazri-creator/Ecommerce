@@ -115,4 +115,4 @@ composer run test
 
 ## 📄 Lisensi
 
-Project ini dibuat untuk keperluan tugas kuliah. Lisensi: [MIT](LICENSE)
+Project ini dibuat untuk keperluan tugas kuliah.
